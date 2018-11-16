@@ -313,14 +313,12 @@ function GeoFigura (){
 			console.log (_x0)
 		};
 		_x0 = x0;
-
 	};
 	this.setY = function(y0){
 		if (!y0){
 			console.log (_y0)
 		};
 		_y0 = y0;
-
 	};
 	};
 
