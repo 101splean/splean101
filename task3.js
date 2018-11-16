@@ -128,6 +128,37 @@ console.log(cube1.perimeter());
 
 /*Задание №3. Прототипы. Типы объектов на прототипах
 Создайте тип объектов MP3 при помощи прототипов.*/
+function Mp3 (brand){
+	this.brand = brand;
+	this.state = false;
+	this.volume = 0;
+};
+Mp3.prototype.enable = function(){
+	this.state = true;
+	console.log('current state is enabled')
+};
+Mp3.prototype.disable = function(){
+	this.state = false;
+	console.log('current state is disabled')
+};
+Mp3.prototype.vol = function(volume){
+	this.volume = volume;
+	console.log('current volume is: ' + this.volume)
+};
+Mp3.prototype.info = function(){
+	for (var key in this){
+		if (typeof key === 'function'){
+			continue
+		}else{
+			console.log(key + ' : ' + this[key]);
+		}
+	}
+};
+var mp3 = new Mp3('ipod');
+//console.log(typeof mp3.enable);
+mp3.enable();
+mp3.vol(18);
+mp3.info();
 
 /*Задание №4. Прототипное наследование
 В Задание №1. Функциональное наследование измените наследование на прототипное.*/
