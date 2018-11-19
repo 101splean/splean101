@@ -29,13 +29,17 @@ try{
 Таким образом, никогда не должны генерироваться исключения, которые есть внутри данной функции.*/
 
 function sumSliceArray (arr, first, second) {
-	while(typeof first !== 'number'|| first > arr.length){
+	while(typeof first !== 'number'|| first > arr.length || isNaN(first)){
 			first = Number(prompt('enter number',''));
 	};
-	while (typeof second !== 'number' || second > arr.length){
+	while (typeof second !== 'number' || second > arr.length || isNaN(second)){
 		second = Number(prompt('enter number',''));
 	};
+	if (typeof first !== 'number' || typeof second !== 'number' || first > arr.length || second > arr.length){
+		throw new RangeError('change one of numbers!');
+	}else{
 	return arr[first-1] + arr[second-1];
+	};
 };
 var mass = [1,2,3,4,56,67,7,8,8,9,9,11];
-console.log(sumSliceArray(mass, 1, null));
+console.log(sumSliceArray(mass, false, null));
