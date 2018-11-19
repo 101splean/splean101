@@ -23,3 +23,18 @@ try{
 }catch(error){
 	console.dir(error)
 };
+Возьмите функцию sumSliceArray(arr, first, second) из предыдущего задания и напишите код, 
+который ее использует, но перед самим использованием проверяет все параметры на правильность. 
+Таким образом, никогда не должны генерироваться исключения, которые есть внутри данной функции.*/
+
+function sumSliceArray (arr, first, second) {
+	while(typeof first !== 'number'|| first > arr.length){
+			first = Number(prompt('enter number',''));
+	};
+	while (typeof second !== 'number' || second > arr.length){
+		second = Number(prompt('enter number',''));
+	};
+	return arr[first-1] + arr[second-1];
+};
+var mass = [1,2,3,4,56,67,7,8,8,9,9,11];
+console.log(sumSliceArray(mass, 1, null));
