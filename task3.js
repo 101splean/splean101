@@ -1,45 +1,23 @@
 'use strict';
 
-/*Задание №1. Исключения
-Напишите функцию sumSliceArray(arr, first, second), которая принимает массив arr и два числа 
-(first и second) – порядковые номера элементов массива, которые необходимо суммировать. 
-Например, если ввели 3 и 5 – суммируются 3-й и 5-й элементы.
-Функция должна генерировать исключения если были введены не числа, и когда одно из чисел, 
-или оба больше размера массива.
-Напишите код, который использует данную функцию, предусмотрите обработку возможных исключений.*/
-
-function sumSliceArray(arr, first, second){
-	if (typeof first !== 'number' && typeof second !== 'number' && first > arr.length && second > arr.length){
-		throw new RangeError('change one of numbers!');
-	}else{
-	return arr[first-1] + arr[second-1];
-	};
+Создайте тип объектов Прямоугольник со свойствами координат верхнего левого (x1, y1) и нижнего правого (x2, y2) углов. 
+Переопределите методы toString() и valueOf(). Метод toString() должен возвращать строку с описанием текущего состояния.
+ Метод valueOf() должен возвращать текущий периметр.*/
+ function Rectangle(x1, y1, x2, y2){
+	this.x1 = x1;
+	this.y1 = y1;
+	this.x2 = x2;
+	this.y2 = y2;
 };
-var mass = [1,2,3,4,56,67,7,8,8,9,9,11];
-
-try{
-	console.log(sumSliceArray(mass, 'r', true));
-	
-}catch(error){
-	console.dir(error)
+Rectangle.prototype.toString = function(){
+	alert('this x1 = '+ this.x1);
+	alert('this y1 = '+ this.y1);
 };
-/*Задание №2. Исключения
-Возьмите функцию sumSliceArray(arr, first, second) из предыдущего задания и напишите код, 
-который ее использует, но перед самим использованием проверяет все параметры на правильность. 
-Таким образом, никогда не должны генерироваться исключения, которые есть внутри данной функции.*/
-
-function sumSliceArray (arr, first, second) {
-	while(typeof first !== 'number'|| first > arr.length || isNaN(first)){
-			first = Number(prompt('enter number',''));
-	};
-	while (typeof second !== 'number' || second > arr.length || isNaN(second)){
-		second = Number(prompt('enter number',''));
-	};
-	if (typeof first !== 'number' || typeof second !== 'number' || first > arr.length || second > arr.length){
-		throw new RangeError('change one of numbers!');
-	}else{
-	return arr[first-1] + arr[second-1];
-	};
+Rectangle.prototype.valueOf = function(){
+	alert('rectangle perimeter = '+ this.x1);
 };
-var mass = [1,2,3,4,56,67,7,8,8,9,9,11];
-console.log(sumSliceArray(mass, false, null));
+
+var r = new Rectangle(1,3,5,7);
+r.toString();
+console.log(Rectangle.toString);
+console.log(r.toString);
