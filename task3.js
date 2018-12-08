@@ -14,3 +14,14 @@ function acc (string){
 		console.log('No numbers')};
 };
 acc(str);
+/*Задание №3. Регулярные выражения
+Напишите функцию, которая принимает строку и ищет в данной строке все числа, в том числе и с десятичной точкой.*/
+
+var regExp = /\d+\.\d+|\d+/g;
+var numbersString = 'qwe1we356rty12.7uiop';
+function acc (string){
+	if(string.match(regExp) !== null){
+		console.log('There are all numbers ' + string.match(regExp));
+	}
+};
+acc (numbersString);
