@@ -1,26 +1,16 @@
 'use strict';
 
-var arr = [];
-for (var i = 0; i >= 0; i++){
-	var temp = prompt('put your string', '');
-	if( temp !== 'end'){
-		arr[i] = temp;
+/*Разработайте регулярные выражения для поиска в тексте телефонных номеров.
+Допустимые форматы телефонного номера +38(057)707-43-56 0(800)500-75-00
+Напишите функцию, которая принимает строку и ищет в данной строке телефонные номера'
+*/
+var str = 'Допустимые форматы телефонного номера +38(057)707-43-56 0(800)500-75-00';
+var regExp1 = /\+\d\d\(\d{3}\)\d{3}-\d{2}-\d{2}/g;
+var regExp2 = /\d\(\d{3}\)\d{3}-\d{2}-\d{2}/g;
+function acc (string){
+	if(string.match(regExp1) !== null || string.match(regExp2) !== null){
+		console.log('There are all numbers ' + string.match(regExp1) + string.match(regExp2));
 	}else{
-		break
-		};
+		console.log('No numbers')};
 };
-console.log(arr);
-
-var arr1 = arr;
-for (var key in arr1){
-	if (isNaN( arr1[key])){
-		arr1[key] = 'No numbers: ' + arr1[key];
-	}else{
-		arr1[key] = 'Numbers: ' + arr1[key];
-	};
-};
-console.log(arr1);
-
-for (var j = 0; j < arr.length; j++){
-	console.log(arr[j] + ' ' + arr1[j]);
-};
+acc(str);
