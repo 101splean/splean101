@@ -103,6 +103,10 @@ console.log(typeof client.result);*/ // "string"
 //Примеры использования функции format():
 /*function format(s, ...v) {
    // Ваш код
+   let arr = v.slice();
+   arr.reverse();
+   arr.push(s);
+   return arr;
 }
 let res1 = format`${1} + ${2} = ${3}`; // "3 = 2 + 1"
 console.log(res1);
@@ -110,3 +114,4 @@ let res2 = format`Привет ${"Мир "}`; // "Мир Привет "
 console.log(res2);
 let res3 = format`left${"<->"}right`; // "right<->left"
 console.log(res3);*/
+
